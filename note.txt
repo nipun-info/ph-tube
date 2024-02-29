@@ -1,0 +1,10 @@
+https://github.com/ProgrammingHero1/86-PHero-tube
+
+https://openapi.programming-hero.com/api/videos/categories
+
+https://openapi.programming-hero.com/api/videos/category/${id}
+
+https://openapi.programming-hero.com/api/videos/category/1000
+
+
+
