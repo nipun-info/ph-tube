@@ -9,6 +9,8 @@
     <!-- daisyui and tailwinds css -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+
 </head>
 
 <body>
@@ -32,22 +34,22 @@
         <!-- button container -->
         <section>
             <div id="btn-container" class="flex justify-center gap-4 ">
-                <button class="btn btn-ghost bg-slate-500 text-white min-w-20">All</button>
+                <!-- <button class="btn btn-ghost bg-slate-500 text-white min-w-20">All</button>
                 <button class="btn btn-ghost bg-slate-500 text-white min-w-20">Music</button>
                 <button class="btn btn-ghost bg-slate-500 text-white min-w-20">Comedy</button>
-                <button class="btn btn-ghost bg-slate-500 text-white min-w-20">Drawing</button>
+                <button class="btn btn-ghost bg-slate-500 text-white min-w-20">Drawing</button> -->
             </div>
         </section>
 
         <!-- video container -->
         <section class="mt-12">
-            <div id="error-element" class="mt-24">
+            <div id="error-element" class="mt-24 hidden">
                 <img class="mx-auto" src="images/Icon.png" alt="">
                 <h1 class="text-3xl text-slate-600 text-center">Opps!! There are No content</h1>
             </div>
 
             <!-- card container -->
-            <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div id="card-container" class="grid gap-10  grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <div class="card w-full bg-base-100 shadow-xl">
                     <figure class="overflow-hidden h-72">
                         <img class="w-full" src="images/smells.png" alt="">
@@ -72,6 +74,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </section>
