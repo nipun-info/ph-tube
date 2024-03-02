@@ -20,6 +20,9 @@ const fetchCategories = () => {
 fetchCategories();
 */
 
+/*
+
+
 const btnContainer = document.getElementById('btn-container');
 const cardContainer = document.getElementById('card-container');
 
@@ -96,3 +99,82 @@ const fetchDataByCategories = (categoryID) => {
 
 fetchCategories();
 fetchDataByCategories(selectedCategory);
+
+*/
+
+const loadCategory = async () => {
+    const response = await fetch(' https://openapi.programming-hero.com/api/videos/categories');
+    const data = await response.json();
+
+    const btnContainer = document.getElementById('btn-container');
+    data.data.forEach((item) => {
+        const div = document.createElement('div');
+        div.classList.add = ``;
+        div.innerHTML = `
+            <button onclick = "loadCardContainer('${item.category_id}')"  class="btn btn-ghost bg-slate-500 text-white min-w-20">
+                ${item.category}
+            </button>
+        `;
+
+        btnContainer.appendChild(div);
+    });
+}
+
+const loadCardContainer = async (cat_id) => {
+   
+    const url = `https://openapi.programming-hero.com/api/videos/category/${cat_id}`
+
+    const response = await fetch(url);
+    const data = await response.json();
+    const videoData = data.data;
+
+    // console.log(videoData.length);
+    
+
+    const cardContainer = document.getElementById('card-container');
+    const errorElement = document.getElementById('error-element');
+
+    if(videoData.length === 0){
+        errorElement.classList.remove('hidden');
+    }else {
+        errorElement.classList.add('hidden');
+    }
+
+    cardContainer.innerHTML = '';
+
+    videoData.forEach((video) => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <div class="w-full bg-base-100 shadow-xl ">
+            <figure class="overflow-hidden h-72 relative">
+                <img class="w-full h-full" src="${video.thumbnail}" alt="">
+                <h6 class="absolute bottom-[4%] right-8 text-white font-bold">0 hr</h6>
+            </figure>
+
+            <div class="card-body">
+                <div class="flex space-x-4 justify-start items-start">
+                    <div>
+                        <img class="w-12 h-12 rounded-full" src="${video.authors[0].profile_picture}" alt="">
+                    </div>
+                    <div>
+                        <h2 class="card-title">
+                            ${video.title}
+                        </h2>
+                        <div class="flex mt-3">
+                            <p>${video.authors[0].profile_name}</p>
+                            
+                        </div>
+                        <p class="mt-3">${video.others.views}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+
+        cardContainer.appendChild(div);
+    });
+}
+
+loadCardContainer("1000");
+
+loadCategory();
